@@ -69,4 +69,5 @@ fun CardItem(
     if (card.cardType == "MASTER CARD") {
         image = painterResource(id = R.drawable.ic_mastercard)
     }
+
 }
