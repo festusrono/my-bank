@@ -1,7 +1,11 @@
 package org.example
 
 import org.example.data.Card
+import org.w3c.dom.Text
 import java.awt.Color
+import java.awt.Image
+import java.lang.reflect.Modifier
+import javax.swing.Box
 
 val cards = listOf(
     Card(
@@ -68,6 +72,49 @@ fun CardItem(
     var image = painterResource(id = R.drawable.ic_visa)
     if (card.cardType == "MASTER CARD") {
         image = painterResource(id = R.drawable.ic_mastercard)
+    }
+
+    Box(
+        modifier = Modifier.padding( start = 16.dp, end = lastItemPaddingEnd)
+    ) {
+        Column(
+            modifier = Modifier
+                .clip(RoundedCornerShape(25.dp))
+                .background(card.color)
+                .width(250.dp)
+                .height(160.dp)
+                .clickable {}
+                .pading(vertical = 12.dp, horizontal = 16.dp),
+            verticalArrangement.SpaceBetween
+        ) {
+            Image(
+                painter = image,
+                contentDescription = card.cardName,
+                modifier = Modifier.width(60.dp)
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = card.cardName,
+                color = Color.White,
+                fontSize = 17.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = "${card.balance}",
+                color = Color.White,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = card.cardNumber,
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
     }
 
 }
