@@ -118,8 +118,31 @@ fun CurrenciesSection() {
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
-                                modifier = Modifier.width(width)
+                                modifier = Modifier.width(width),
+                                text = "Currency",
+                                fontWeight = FontWeight.SemiBlod,
+                                fontSize = 16.sp,
+                                color = MaterialTheme. colorScheme.onBackgoround
                             )
+
+                            Text(
+                                modifier = Modifier.width(width),
+                                text = "Buy",
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 16.sp,
+                                color = MaterialTheme.colorScheme.onBackground,
+                                textAlign = TextAlign.End
+                            )
+                        }
+                        SPacer(modifier = Modifier.height(16.dp))
+
+                        LazyColumn{
+                            items(currrencies.size) { index ->
+                                CurrencyItem(
+                                    index = index,
+                                    width = width
+                                )
+                            }
                         }
                     }
                 }
