@@ -151,3 +151,54 @@ fun CurrenciesSection() {
         }
 }
 }
+
+@Composable
+fun CurrencyItem(index: Int, width: Dp) {
+    val currency = currencies[index]
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom(16.dp)),
+        verticalAlignment = Alignment.CenterVertically
+    )
+    Row(
+        modifier = Modifier.width(width),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(8.dp))
+                .backgroumd(GreenStart)
+                .padding(4.dp)
+        ) {
+            Icon(
+                modifier = Modifier
+                    .padding(start = 10.dp),
+                text = currency.name,
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp,
+                color = MaterialTheme.colorScheme.onBackground,
+            )
+        }
+        Text(
+            modifier = Modifier
+                .width(width)
+                .padding(start = 10.dp),
+            text = "$ ${currency.buy}",
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            color = MaterialTheme.colorScheme.onBackground,
+            textAlign = TextAlign.End
+        )
+        Text(
+            modifier = Modifier
+                .width(width)
+                .padding(start = 10.dp),
+            text = "$ ${currency.sell}",
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            color = MaterialTheme.colorScheme.onBackground,
+            textAlign = TextAlign.End
+        )
+    }
+}
