@@ -67,10 +67,32 @@ fun CurrenciesSection() {
                         .background(MateriaTheme.colorScheme.secondary)
                         .clickable {
                             isVisable = !isVisible
-                            iconState = if (isVisible)
+                            iconState = if (isVisible) {
+                                Icons.Rounded.KeyboardArrowUp
+                            } else {
+                                Icons.Rounded.KeyboardArrowDown
+                            }
                         }
+                ) {
+                    Icon(
+                        modifier = Modifier.size(25.dp),
+                        imageVector = iconState,
+                        contentDescription = "Currencies",
+                        tint = MaterialTheme.colorScheme.onSecondary
+                    )
+                }
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Text(
+                    text = "Currencies",
+                    fontSize = 20.sp,
+                    color = MaterialTheme.colorScheme.onSecondarycontainer,
+                    fontWeight = FontWeight.Bold
                 )
             }
+            Spacer(
+
+            )
         }
 }
 }
