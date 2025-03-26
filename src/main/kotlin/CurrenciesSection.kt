@@ -90,9 +90,41 @@ fun CurrenciesSection() {
                     fontWeight = FontWeight.Bold
                 )
             }
-            Spacer(
-
+            Spacer( modifier = Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.secondaryContainer)
             )
+
+            if (isVisible) {
+                BoxWithConstraints(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+                        .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
+                        .background(MaterialTheme.colorScheme.background)
+                ) {
+                    val boxWithConstraintsScope = this
+                    val width = boxWithConstraintsScope.maxWidth / 3
+
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                    ) {
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.width(width)
+                            )
+                        }
+                    }
+                }
+
+            }
         }
 }
 }
