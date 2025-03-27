@@ -202,3 +202,7 @@ fun CurrencyItem(index: Int, width: Dp) {
         )
     }
 }
+
+
+
+
